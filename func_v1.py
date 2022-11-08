@@ -1,4 +1,5 @@
 from intbase import InterpreterBase
+from env_v1 import EnvironmentManager
 
 # FuncInfo is a class that represents information about a function
 # Right now, the only thing this tracks is the line number of the first executable instruction
@@ -6,6 +7,7 @@ from intbase import InterpreterBase
 class FuncInfo:
   def __init__(self, start_ip):
     self.start_ip = start_ip    # line number, zero-based
+    self.func_env = [EnvironmentManager()]
 
 # FunctionManager keeps track of every function in the program, mapping the function name
 # to a FuncInfo object (which has the starting line number/instruction pointer) of that function.
